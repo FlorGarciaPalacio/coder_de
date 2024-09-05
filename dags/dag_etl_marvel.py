@@ -22,3 +22,5 @@ with DAG(
         python_callable=print(),
         op_args=['Hola Mundo']
         )
+
+    task_extract
