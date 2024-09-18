@@ -115,5 +115,7 @@ with DAG(
     
     #Falta la task de redshift y la de mandar mail
 
-task_extract >> branch_decide >> [task_transform, dummy_task] >> task_upload
+task_extract >> branch_decide >> task_transform >> task_upload
+
+task_extract >> branch_decide >> dummy_task 
 
