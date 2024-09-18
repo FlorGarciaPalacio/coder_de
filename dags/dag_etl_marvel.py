@@ -62,17 +62,17 @@ def upload_xcom(ti):
     redshift_upload_data(json_path)
     return 
 
-def success_status_email(ti,ds,email):
+def success_status_email(ti,**context):
     task_status = ti.current_state()
     task_id = ti.task_id
     
     #armar email    
     subject = f"Airflow Task {task_id} {task_status}"
     body = f"La tarea {task_id} obtuvo un status: {task_status}.\n\n" \
-           f"Dia de ejecucion de la tarea: {ds}\n" \
+           f"Dia de ejecucion de la tarea: {context['ds']}\n" \
            f"Log URL: {ti.log_url}\n\n"
 
-    to_email = email 
+    to_email = os.getenv('EMAIL') 
 
     send_email(to=to_email, subject=subject, html_content=body)
     
@@ -80,7 +80,7 @@ with DAG(
     default_args=default_args,
     dag_id='dag_api_marvel_endpoint_characters',
     description= 'Dag que extrae informacion de la API marvel endpoint characters',
-    start_date=datetime.datetime(2024,8,1),
+    start_date=datetime.datetime(2024,8,6),
     schedule="0 0 * * *",
     catchup=True
     ) as dag:
@@ -118,4 +118,3 @@ with DAG(
 task_extract >> branch_decide >> task_transform >> task_upload
 
 task_extract >> branch_decide >> dummy_task 
-
