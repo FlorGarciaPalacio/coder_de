@@ -8,7 +8,7 @@ El repositorio posee un archivo .yml que permitira la ejecucion de docker compos
 
 Para poder realizar la ejecucion del archivo docker y el dag se deberan seguir los siguientes pasos:
 
-1.Crear la tabla charcters por medio del SQL script ubicado en la carpeta sql
+1.Crear la tabla marvel_charcters por medio del [SQL script](https://github.com/FlorGarciaPalacio/coder_de/blob/ProyectoFinal_CoderDE/sql/Create_marvel_character_table.sql) ubicado en la carpeta sql
 
 2. Completar los archivos .env ubicados en el root principal y en la carpeta ./dags.
 
