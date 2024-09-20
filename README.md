@@ -8,9 +8,11 @@ El repositorio posee un archivo .yml que permitira la ejecucion de docker compos
 
 Para poder realizar la ejecucion del archivo docker y el dag se deberan seguir los siguientes pasos:
 
-1. Completar los archivos .env ubicados en el root principal y en la carpeta ./dags.
+1.Crear la tabla charcters por medio del SQL script ubicado en la carpeta sql
 
-2. En la terminal ejecutar el codigo bash que creara las carpetas necesarias para que airflow funcione:
+2. Completar los archivos .env ubicados en el root principal y en la carpeta ./dags.
+
+3. En la terminal ejecutar el codigo bash que creara las carpetas necesarias para que airflow funcione:
  ```bash
 mkdir -p ./logs ./plugins ./config
  ```
